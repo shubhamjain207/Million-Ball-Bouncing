@@ -4,13 +4,12 @@
 int main()
 {
     sf::RenderWindow window(sf::VideoMode(1280, 720), "SFML works!");
-    sf::CircleShape shape(10.f);
+    sf::CircleShape shape(20.f);
     shape.setFillColor(sf::Color().Red);
     shape.setPosition(1280/2, 720/2);
     float posX = 1280/2, posY = 720/2;
-    float val = 0.1f;
-    float val1 = 0.1f;
-    float val3 = 0.1f;
+    float val = 0.3f;
+    
 
     bool flag = false;
 
@@ -29,18 +28,23 @@ int main()
         window.clear();
         window.draw(shape);
 
-        if (posY + 20.f > 720) {
+        if (posY + 40.f > 720) {
             val = -0.1f;
             flag = true;
         }
 
-        if (posY < 600 && flag) {
-            val = 0.1f;
+
+
+        if (flag){
+            val += 0.00003f;
+            
+        
         }
 
-        if (flag) {
-            val -= 0.00001f * -1;
+        else {
+            val += 0.00003f;
         }
+       
 
         posY+=val;
 
