@@ -1,2 +1,4 @@
 ﻿  Source.cpp
+D:\SFML\MillionBalls\MillionBalls\Source.cpp(62,34): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+D:\SFML\MillionBalls\MillionBalls\Source.cpp(63,33): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
   MillionBalls.vcxproj -> D:\SFML\MillionBalls\x64\Debug\MillionBalls.exe
