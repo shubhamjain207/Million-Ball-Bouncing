@@ -5,8 +5,12 @@
 class Ball {
 
     float posY,posX;
-    float val=0.1f;
+    float val=2;
+    float val1 = 0.00006f;
     sf::CircleShape shape;
+
+
+
 
     public:
          void createBall(float ballPosX, float ballPosY) {
@@ -16,9 +20,11 @@ class Ball {
             
 
        
-               shape.setRadius(7.f);
+               shape.setRadius(15.f);
+               shape.setOutlineColor(sf::Color().White);
+               shape.setOutlineThickness(2);
                shape.setFillColor(sf::Color().Red);
-              shape.setPosition(ballPosX, ballPosY);
+               shape.setPosition(ballPosX, ballPosY);
       
 
 
@@ -34,13 +40,13 @@ class Ball {
 
          void bounceBall() {
              
-               if (shape.getPosition().y + 14.f > 720) {
-                     val = -0.6f;
-                     //val1 += 0.00006f;
+               if (shape.getPosition().y + 30.f > 720) {
+                     val = -2;
+                     val1 += 0.006f;
                           /* flag = true;*/
                 }
 
-               val += 0.0006f;
+               val += val1;
                posY += val;
                shape.setPosition(posX, posY);
            
