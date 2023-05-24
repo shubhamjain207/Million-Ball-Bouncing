@@ -1,6 +1,6 @@
 #include <SFML/Graphics.hpp>
 #include <iostream>
-
+#include <cstdlib>
 
 class Ball {
 
@@ -15,16 +15,16 @@ class Ball {
     public:
          void createBall(float ballPosX, float ballPosY) {
     
-               posY = ballPosY;
-               posX = ballPosX;
+             //  posY = ballPosY;
+               //posX = ballPosX;
             
 
        
-               shape.setRadius(15.f);
+               shape.setRadius(30.f);
                shape.setOutlineColor(sf::Color().White);
                shape.setOutlineThickness(2);
                shape.setFillColor(sf::Color().Red);
-               shape.setPosition(ballPosX, ballPosY);
+              // shape.setPosition(ballPosX, ballPosY);
       
 
 
@@ -36,6 +36,29 @@ class Ball {
     
          }
 
+         void setPosition(float BallPosX, float BallPosY) {
+         
+             posY = BallPosY;
+             posX = BallPosX;
+
+             shape.setPosition(posX, posY);
+
+
+
+         }
+
+         
+         int getPositionX() {
+
+             return posX;
+
+         }
+
+         int getPositionY() {
+
+             return posY;
+
+         }
 
 
          void bounceBall() {
@@ -60,18 +83,19 @@ int main()
    
 
     std::vector<Ball> shapes;
-    float ballPosY = 0.f, ballPosX = 0.f;
+   // float ballPosY = 0.f, ballPosX = 0.f;
+    float ballPosX = 1280 / 2, ballPosY = 720 / 2;
 
+    for (int i = 0; i < 2; i++) {
 
-    for (int i = 0; i < 1000; i++) {
-
-        ballPosX = rand() % 1280 + 1;
-        ballPosY = rand() % 720 + 1;
-
+      //   ballPosX = rand() % 1280 + 1;
+     //    ballPosY = rand() % 720 + 1;
+        
         Ball ball;
         ball.createBall(ballPosX, ballPosY);
         //sf::CircleShape ballShape = ball.createBall(ballPosX, ballPosY);
-        
+        ballPosX += 100;
+        ballPosY += 100;
         
         shapes.push_back(ball);
 
@@ -97,6 +121,28 @@ int main()
         {
             if (event.type == sf::Event::Closed)
                 window.close();
+
+        }
+
+
+        sf::Vector2i position = sf::Mouse::getPosition(window);
+
+        shapes[0].setPosition(1280/2, 720/2);
+        shapes[1].setPosition(position.x, position.y);
+       
+
+        
+        if (shapes[1].getPositionX() + 60.f > shapes[0].getPositionX() && 
+            shapes[1].getPositionY() < shapes[0].getPositionY() + 60.f &&
+            shapes[1].getPositionY() > shapes[0].getPositionY() - 60.f)
+            {
+
+            shapes[1].setPosition(shapes[0].getPositionX() - 60.f, shapes[1].getPositionY() - 50);
+            
+        }
+
+        if (shapes[1].getPositionX() < shapes[0].getPositionX() + 30.f) {
+        
         }
 
         window.clear();
@@ -107,10 +153,13 @@ int main()
             posY = shapes[i].getPosition().y;
           */
             
-        for (int i = 0; i < 1000; i++) {
+        for (int i = 0; i < 2; i++) {
             window.draw(shapes[i].drawBall());
-            shapes[i].bounceBall();
+          //  shapes[i].setPosition();
+           // shapes[i].bounceBall();
         }
+
+
            
 
        //     if (shapes[i].getPosition().y + 40.f > 720) {

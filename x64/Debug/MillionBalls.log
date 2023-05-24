@@ -1,1 +1,15 @@
-﻿  MillionBalls.vcxproj -> D:\SFML\MillionBalls\x64\Debug\MillionBalls.exe
+﻿  Source.cpp
+D:\SFML\MillionBalls\MillionBalls\Source.cpp(53,21): warning C4244: 'return': conversion from 'float' to 'int', possible loss of data
+D:\SFML\MillionBalls\MillionBalls\Source.cpp(59,21): warning C4244: 'return': conversion from 'float' to 'int', possible loss of data
+D:\SFML\MillionBalls\MillionBalls\Source.cpp(131,51): warning C4244: 'argument': conversion from 'T' to 'float', possible loss of data
+          with
+          [
+              T=int
+          ]
+D:\SFML\MillionBalls\MillionBalls\Source.cpp(131,39): warning C4244: 'argument': conversion from 'T' to 'float', possible loss of data
+          with
+          [
+              T=int
+          ]
+D:\SFML\MillionBalls\MillionBalls\Source.cpp(140,93): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+  MillionBalls.vcxproj -> D:\SFML\MillionBalls\x64\Debug\MillionBalls.exe
